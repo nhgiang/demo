@@ -1,0 +1,41 @@
+<div style="text-align: right">
+  <a nz-button nzType="default" style="margin-bottom: 24px" (click)="generateData()">
+    Generate data
+  </a>
+</div>
+<nz-table
+  [nzData]="payments"
+  [nzFrontPagination]="false"
+  [nzShowPagination]="false"
+  [nzScroll]="{ x: '1200px', y: 'calc(100vh - 270px)' }"
+  [nzVirtualItemSize]="54"
+>
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Họ tên</th>
+      <th scope="col" nzAlign="center">Image</th>
+      <th scope="col">video</th>
+      <th scope="col">Mật khẩu</th>
+      <th scope="col">Email</th>
+      <th scope="col">Chi tiết</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let paymentInfo of payments; index as i">
+      <td>#{{ i + 1 }}</td>
+      <td >{{ paymentInfo.fullName }}</td>
+      <td nzAlign="center">
+        <img
+          [src]="endpoint + '/' + paymentInfo.image"
+          style="width: 105px; height: 50px"
+          alt=""
+        />
+      </td>
+      <td>{{ paymentInfo.accountNumber }}</td>
+      <td>{{ paymentInfo.password }}</td>
+      <td>{{ paymentInfo.email }}</td>
+      <td><a (click)="preview(paymentInfo)">Chi tiết</a></td>
+    </tr>
+  </tbody>
+</nz-table>

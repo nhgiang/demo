@@ -1,0 +1,42 @@
+<form [formGroup]="form" nz-form nzLayout="horizontal">
+  <nz-form-item>
+    <nz-form-label class="text-left" [nzSm]="8">Họ và Tên</nz-form-label>
+    <nz-form-control [nzSm]="16" nzErrorTip="Vui lòng nhập tên ngân hàng">
+      <input nz-input formControlName="fullName" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label class="text-left" [nzSm]="8">Password</nz-form-label>
+    <nz-form-control [nzSm]="16" nzErrorTip="Vui lòng nhập mã ngân hàng">
+      <input nz-input formControlName="password" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label class="text-left" [nzSm]="8">Email</nz-form-label>
+    <nz-form-control [nzSm]="16">
+      <input nz-input formControlName="email" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label class="text-left" [nzSm]="8">Image</nz-form-label>
+    <nz-form-control [nzSm]="16" nzErrorTip="Vui lòng nhập tên chủ tài khoản">
+      <img [src]="endpoint + '/' + data.image" alt="" style="width: 100%" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label class="text-left" [nzSm]="8">Video</nz-form-label>
+    <nz-form-control [nzSm]="16" nzErrorTip="Vui lòng nhập chi nhánh ngân hàng">
+      <video
+        [src]="endpoint + '/' + data.video"
+        style="width: 100%"
+        controls
+      ></video>
+    </nz-form-control>
+  </nz-form-item>
+
+  <div *nzModalFooter>
+    <button nz-button nzType="primary">Trở về</button>
+  </div>
+</form>
+
+<canvas #imageManipulation style="display: none"></canvas>
